@@ -14,3 +14,11 @@ volumes:
             target: EFI/boot/bootaa64.efi
           - source: grub.cfg
             target: EFI/ubuntu/grub.cfg
+          - source: qcm6490-addons-idp-ovl.dtb 
+            target: dtb/qcm6490-idp.dtb
+          - source: qcm6490-addons-rb3-ovl.dtb
+            target: dtb/qcm6490-rb3.dtb
+          - source: qcm6490-addons-rb3gen2-video-mezz-ovl.dtb
+            target: dtb/qcm6490-rb3gen2-video-mezz.dtb
+          - source: qcm6490-addons-rb3gen2-vision-mezz-ovl.dtb
+            target: dtb/qcm6490-rb3gen2-vision-mezz.dtb
