@@ -169,7 +169,7 @@ install: boot
 	install -m 644 grub.conf grub.cfg $(DESTDIR)/
 	# Temporary workaround. dtb is committed in gadget from linux-qcom-modules now. 
 	# Long term solution should be fetching the kernel package and extract the latest version during gadget build.
-	install -m 644 qcm6490-addons-idp-ovl.dtb qcm6490-addons-rb3-ovl.dtb qcm6490-addons-rb3gen2-video-mezz-ovl.dtb qcm6490-addons-rb3gen2-vision-mezz-ovl.dtb $(DESTDIR)/
+	install -m 644 qcs6490-rb3gen2.dtb qcs6490-rb3gen2-ia-mezz.dtb qcs6490-rb3gen2-ptz-mezz.dtb qcs6490-rb3gen2-video-mezz.dtb qcs6490-rb3gen2-vision-mezz.dtb $(DESTDIR)/
 	# For classic builds we also need to prime the gadget.yaml
 	mkdir -p $(DESTDIR)/meta
 	ln gadget-$(ARCH).yaml gadget.yaml
