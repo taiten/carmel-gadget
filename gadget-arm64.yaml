@@ -14,13 +14,13 @@ volumes:
             target: EFI/boot/bootaa64.efi
           - source: grub.cfg
             target: EFI/ubuntu/grub.cfg
-          - source: qcs6490-rb3gen2.dtb
+          - source: qcs6490-addons-rb3gen2.dtb
             target: dtb/qcs6490-rb3gen2.dtb
-          - source: qcs6490-rb3gen2-ia-mezz.dtb
+          - source: qcs6490-addons-rb3gen2-ia-mezz.dtb
             target: dtb/qcs6490-rb3gen2-ia-mezz.dtb
-          - source: qcs6490-rb3gen2-ptz-mezz.dtb
+          - source: qcs6490-addons-rb3gen2-ptz-mezz.dtb
             target: dtb/qcs6490-rb3gen2-ptz-mezz.dtb
-          - source: qcs6490-rb3gen2-video-mezz.dtb
+          - source: qcs6490-addons-rb3gen2-video-mezz.dtb
             target: dtb/qcs6490-rb3gen2-video-mezz.dtb
-          - source: qcs6490-rb3gen2-vision-mezz.dtb
+          - source: qcs6490-addons-rb3gen2-vision-mezz.dtb
             target: dtb/qcs6490-rb3gen2-vision-mezz.dtb

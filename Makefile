@@ -126,6 +126,10 @@ stage-package:
 	    echo "deb $(ARCHIVE) $(SERIES) main" >$(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/sources.list; \
 	    echo "deb $(ARCHIVE) $(SERIES)-security main" >>$(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/sources.list; \
 	    echo "deb $(ARCHIVE) $(SERIES)-updates main" >>$(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/sources.list; \
+	    if [ -e "carmel.list" ]; then \
+	        cp carmel.list $(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/sources.list.d/; \
+		curl -S "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC26625BD44AECFC4EF0895170D6BA5A44BB4A48D" | sudo gpg --batch --yes --dearmor --output "$(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/trusted.gpg.d/carmel.gpg"; \
+	    fi; \
 	    if [ -n "$$PROPOSED" ]; then \
 	        echo "deb $(ARCHIVE) $(SERIES)-proposed main" >>$(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/sources.list; \
 	    fi; \
@@ -161,7 +165,17 @@ boot: $(LEGACY_BOOT)
 	fi
 	cp $(STAGEDIR)/usr/lib/grub/$(GRUB_TARGET)/grub$(EFI_ARCH).efi.signed grub$(EFI_ARCH).efi
 
-install: boot
+carmel.list:
+	ifeq (,$(wildcard carmel.list))
+		$(error Please prepare your carmel private PPA source.list file as carmel.list)
+	endif	
+
+dtb: carmel.list
+	$(MAKE) stage-package package=linux-qcom
+	# chdist is setup, query the kernel version
+	$(MAKE) stage-package package=linux-modules-$(shell chdist -d $(STAGEDIR)/tmp/chdist -a $(ARCH) apt $(SERIES)-$(ARCH) show linux-qcom | grep "Version:" | cut -d" " -f 2 | cut -d"." -f-3)-qcom
+
+install: boot dtb
 	mkdir -p $(DESTDIR)
 	install -m 644 \
 	    $(if $(LEGACY_BOOT),pc-boot.img pc-core.img) shim.efi.signed grub$(EFI_ARCH).efi \
@@ -169,7 +183,7 @@ install: boot
 	install -m 644 grub.conf grub.cfg $(DESTDIR)/
 	# Temporary workaround. dtb is committed in gadget from linux-qcom-modules now. 
 	# Long term solution should be fetching the kernel package and extract the latest version during gadget build.
-	install -m 644 qcs6490-rb3gen2.dtb qcs6490-rb3gen2-ia-mezz.dtb qcs6490-rb3gen2-ptz-mezz.dtb qcs6490-rb3gen2-video-mezz.dtb qcs6490-rb3gen2-vision-mezz.dtb $(DESTDIR)/
+	install -m 644 $(STAGEDIR)/lib/firmware/*/device-tree/qcom/*6490*.dtb $(DESTDIR)/
 	# For classic builds we also need to prime the gadget.yaml
 	mkdir -p $(DESTDIR)/meta
 	ln gadget-$(ARCH).yaml gadget.yaml
