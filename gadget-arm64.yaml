@@ -3,6 +3,7 @@ volumes:
     schema: gpt
     bootloader: grub
     structure:
+# Partition conf in upstream: https://github.com/quic-yocto/meta-qcom-hwe/blob/kirkstone/recipes-devtools/partition-utils/partition-confs/generic-ufs-partitions.conf
       - name: ssd
         size: 8192
         type: 2C86E742-745E-4FDD-BFD8-B6A7AC638772
