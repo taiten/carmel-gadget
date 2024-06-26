@@ -1,9 +1,22 @@
 volumes:
   pc:
+    schema: gpt
     bootloader: grub
     structure:
-      - name: EFI System
-        type: EF,C12A7328-F81F-11D2-BA4B-00A0C93EC93B
+      - name: ssd
+        size: 8192
+        type: 2C86E742-745E-4FDD-BFD8-B6A7AC638772
+      - name: misc
+        size: 1M
+        type: 82ACC91F-357C-4A68-9C8F-689E1B1A23A1
+      - name: keystore
+        type: DE7D4029-0F5B-41C8-AE7E-F6C023A02B33
+        size: 524288
+      - name: frp
+        type: 91B72D4D-71E0-4CBF-9B8E-236381CFF17A
+        size: 524288
+      - name: efi
+        type: EF,B9906CDD-5714-45B6-AED9-C7FDF7B5306E
         filesystem: vfat-16
         filesystem-label: system-boot
         size: 50M
