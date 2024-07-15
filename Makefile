@@ -181,9 +181,9 @@ install: boot dtb
 	    $(if $(LEGACY_BOOT),pc-boot.img pc-core.img) shim.efi.signed grub$(EFI_ARCH).efi \
 	    $(DESTDIR)/
 	install -m 644 grub.conf grub.cfg $(DESTDIR)/
-	# Temporary workaround. dtb is committed in gadget from linux-qcom-modules now. 
-	# Long term solution should be fetching the kernel package and extract the latest version during gadget build.
-	install -m 644 $(STAGEDIR)/lib/firmware/*/device-tree/qcom/*6490*.dtb $(DESTDIR)/
+	for dtb in `ls $(STAGEDIR)/lib/firmware/*/device-tree/qcom/*6490*.dtb` ; do \
+        cat $$dtb >> $(DESTDIR)/combined-dtb.dtb; \
+ 	done
 	# For classic builds we also need to prime the gadget.yaml
 	mkdir -p $(DESTDIR)/meta
 	ln gadget-$(ARCH).yaml gadget.yaml
