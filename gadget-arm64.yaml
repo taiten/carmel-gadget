@@ -18,6 +18,8 @@ volumes:
         size: 524288
       - name: dtb_a
         type: 2a1a52fc-aa0b-401c-a808-5ea0f91068f8
+        filesystem: vfat-16
+        filesystem-label: dtb_a
         size: 64M
         content:
           - source: combined-dtb.dtb
