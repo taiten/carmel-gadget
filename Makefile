@@ -182,8 +182,6 @@ install: boot dtb
 	    $(DESTDIR)/
 	install -m 644 grub.conf grub.cfg $(DESTDIR)/
 	install -m 644 $(STAGEDIR)/lib/firmware/*/device-tree/qcom/combined-dtb.dtb $(DESTDIR)/
-	# Temporary keeping the logic to put dtb in EFI partition so that Ubuntu image will be compatbile with QC Linux 1.0 & 1.1 boot firmware. 
-	install -m 644 $(STAGEDIR)/lib/firmware/*/device-tree/qcom/*6490*.dtb $(DESTDIR)/
 	# For classic builds we also need to prime the gadget.yaml
 	mkdir -p $(DESTDIR)/meta
 	ln gadget-$(ARCH).yaml gadget.yaml
