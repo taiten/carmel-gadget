@@ -36,14 +36,3 @@ volumes:
             target: EFI/boot/bootaa64.efi
           - source: grub.cfg
             target: EFI/ubuntu/grub.cfg
-# Temporary keeping the logic to put dtb in EFI partition so that Ubuntu image will be compatbile with QC Linux 1.0 & 1.1 boot firmware. 
-          - source: qcs6490-addons-rb3gen2-ovl.dtb
-            target: dtb/qcs6490-rb3gen2.dtb
-          - source: qcs6490-addons-rb3gen2-ia-mezz.dtb
-            target: dtb/qcs6490-rb3gen2-ia-mezz.dtb
-          - source: qcs6490-addons-rb3gen2-ptz-mezz.dtb
-            target: dtb/qcs6490-rb3gen2-ptz-mezz.dtb
-          - source: qcs6490-addons-rb3gen2-video-mezz-ovl.dtb
-            target: dtb/qcs6490-rb3gen2-video-mezz.dtb
-          - source: qcs6490-addons-rb3gen2-vision-mezz-ovl.dtb
-            target: dtb/qcs6490-rb3gen2-vision-mezz.dtb
