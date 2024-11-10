@@ -129,6 +129,7 @@ stage-package:
 	    if [ -e "carmel.list" ]; then \
 	        cp carmel.list $(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/sources.list.d/; \
 		curl -S "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC26625BD44AECFC4EF0895170D6BA5A44BB4A48D" | sudo gpg --batch --yes --dearmor --output "$(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/trusted.gpg.d/carmel.gpg"; \
+		curl -S "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2FC90574D1184C2DF023BEAF909382B6AA4313AC" | sudo gpg --batch --yes --dearmor --output "$(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/trusted.gpg.d/andon.gpg"; \
 	    fi; \
 	    if [ -n "$$PROPOSED" ]; then \
 	        echo "deb $(ARCHIVE) $(SERIES)-proposed main" >>$(STAGEDIR)/tmp/chdist/$(SERIES)-$(ARCH)/etc/apt/sources.list; \
