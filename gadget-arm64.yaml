@@ -79,7 +79,7 @@ volumes:
       - name: dtb_a
         size: 64M
         type: 2a1a52fc-aa0b-401c-a808-5ea0f91068f8
-        filesystem: vfat
+        filesystem: vfat-16
         filesystem-label: dtb_a
         content:
           - source: combined-dtb.dtb
@@ -94,7 +94,7 @@ volumes:
             target: combined-dtb.dtb 
       - name: efi
         type: EF,B9906CDD-5714-45B6-AED9-C7FDF7B5306E
-        filesystem: vfat
+        filesystem: vfat-16
         filesystem-label: system-boot
         size: 50M
         content:
