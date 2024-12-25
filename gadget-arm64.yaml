@@ -88,7 +88,7 @@ volumes:
         size: 64M
         type: a166f11a-2b39-4faa-b7e7-f8aa080d0587
         filesystem: vfat
-        filesystem-label: dtb_a
+        filesystem-label: dtb_b
         content:
           - source: combined-dtb.dtb
             target: combined-dtb.dtb 
