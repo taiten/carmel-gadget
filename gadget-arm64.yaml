@@ -77,26 +77,26 @@ volumes:
         size: 3137536
         type: DEA0BA2C-CBDD-4805-B4F9-F428251C3E98
       - name: dtb_a
-        size: 65536
+        size: 64M
         type: 2a1a52fc-aa0b-401c-a808-5ea0f91068f8
-        filesystem: vfat-16
+        filesystem: fat16
         filesystem-label: dtb_a
         content:
           - source: combined-dtb.dtb
             target: combined-dtb.dtb 
       - name: dtb_b
-        size: 65536
+        size: 64M
         type: a166f11a-2b39-4faa-b7e7-f8aa080d0587
-        filesystem: vfat-16
+        filesystem: fat16
         filesystem-label: dtb_b
         content:
           - source: combined-dtb.dtb
             target: combined-dtb.dtb 
       - name: efi
         type: EF,B9906CDD-5714-45B6-AED9-C7FDF7B5306E
-        filesystem: vfat-16
+        filesystem: fat16
         filesystem-label: system-boot
-        size: 65536
+        size: 50M
         content:
           - source: grubaa64.efi
             target: EFI/boot/grubaa64.efi
