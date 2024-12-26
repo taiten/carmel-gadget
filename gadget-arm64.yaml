@@ -79,7 +79,7 @@ volumes:
       - name: dtb_a
         size: 64M
         type: 2A1A52FC-AA0B-401C-A808-5EA0F91068F8
-        filesystem: vfat-16
+          #        filesystem: vfat-16
         filesystem-label: dtb_a
         content:
           - source: combined-dtb.dtb
@@ -87,7 +87,7 @@ volumes:
       - name: dtb_b
         size: 64M
         type: A166F11A-2B39-4FAA-B7E7-F8AA080D0587
-        filesystem: vfat-16
+          #        filesystem: vfat-16
         filesystem-label: dtb_b
         content:
           - source: combined-dtb.dtb
