@@ -3,94 +3,28 @@ volumes:
     schema: gpt
     bootloader: grub
     structure:
-# Partition conf in upstream: https://github.com/quic-yocto/meta-qcom-hwe/blob/kirkstone/recipes-devtools/partition-utils/partition-confs/generic-ufs-partitions.conf
-  # <program start_sector="131072" size_in_KB="3604.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="7208" readbackverify="false" filename="xbl.elf" sparse="false" start_byte_hex="0x4000000" SECTOR_SIZE_IN_BYTES="512" label="xbl_a"/>
-  # <program start_sector="138280" size_in_KB="3604.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="7208" readbackverify="false" filename="xbl.elf" sparse="false" start_byte_hex="0x4385000" SECTOR_SIZE_IN_BYTES="512" label="xbl_b"/>
-  # <program start_sector="145488" size_in_KB="65536.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="131072" readbackverify="false" filename="dtb.bin" sparse="false" start_byte_hex="0x470a000" SECTOR_SIZE_IN_BYTES="512" label="dtb_a"/>
-  # <program start_sector="276560" size_in_KB="65536.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="131072" readbackverify="false" filename="dtb.bin" sparse="false" start_byte_hex="0x870a000" SECTOR_SIZE_IN_BYTES="512" label="dtb_b"/>
-  # <program start_sector="407632" size_in_KB="524288.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1048576" readbackverify="false" filename="efi.bin" sparse="false" start_byte_hex="0xc70a000" SECTOR_SIZE_IN_BYTES="512" label="efi"/>
-  # <program start_sector="1572864" size_in_KB="512.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1024" readbackverify="false" filename="xbl_config.elf" sparse="false" start_byte_hex="0x30000000" SECTOR_SIZE_IN_BYTES="512" label="xbl_config_a"/>
-  # <program start_sector="1573888" size_in_KB="512.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1024" readbackverify="false" filename="xbl_config.elf" sparse="false" start_byte_hex="0x30080000" SECTOR_SIZE_IN_BYTES="512" label="xbl_config_b"/>
-  # <program start_sector="1574912" size_in_KB="2048.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="4096" readbackverify="false" filename="XblRamdump.elf" sparse="false" start_byte_hex="0x30100000" SECTOR_SIZE_IN_BYTES="512" label="xbl_ramdump_a"/>
-  # <program start_sector="1579008" size_in_KB="2048.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="4096" readbackverify="false" filename="XblRamdump.elf" sparse="false" start_byte_hex="0x30300000" SECTOR_SIZE_IN_BYTES="512" label="xbl_ramdump_b"/>
-  # <program start_sector="1703936" size_in_KB="5120.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="10240" readbackverify="false" filename="uefi.elf" sparse="false" start_byte_hex="0x34000000" SECTOR_SIZE_IN_BYTES="512" label="uefi_a"/>
-  # <program start_sector="1714176" size_in_KB="5120.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="10240" readbackverify="false" filename="uefi.elf" sparse="false" start_byte_hex="0x34500000" SECTOR_SIZE_IN_BYTES="512" label="uefi_b"/>
-  # <program start_sector="1724416" size_in_KB="128.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="256" readbackverify="false" filename="shrm.elf" sparse="false" start_byte_hex="0x34a00000" SECTOR_SIZE_IN_BYTES="512" label="shrm_a"/>
-  # <program start_sector="1724672" size_in_KB="128.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="256" readbackverify="false" filename="shrm.elf" sparse="false" start_byte_hex="0x34a20000" SECTOR_SIZE_IN_BYTES="512" label="shrm_b"/>
-  # <program start_sector="1724928" size_in_KB="4096.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="8192" readbackverify="false" filename="tz.mbn" sparse="false" start_byte_hex="0x34a40000" SECTOR_SIZE_IN_BYTES="512" label="tz_a"/>
-  # <program start_sector="1835008" size_in_KB="4096.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="8192" readbackverify="false" filename="tz.mbn" sparse="false" start_byte_hex="0x38000000" SECTOR_SIZE_IN_BYTES="512" label="tz_b"/>
-  # <program start_sector="1966080" size_in_KB="512.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1024" readbackverify="false" filename="aop.mbn" sparse="false" start_byte_hex="0x3c000000" SECTOR_SIZE_IN_BYTES="512" label="aop_a"/>
-  # <program start_sector="2097152" size_in_KB="512.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1024" readbackverify="false" filename="aop.mbn" sparse="false" start_byte_hex="0x40000000" SECTOR_SIZE_IN_BYTES="512" label="aop_b"/>
-  # <program start_sector="2228224" size_in_KB="8192.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="16384" readbackverify="false" filename="hypvm.mbn" sparse="false" start_byte_hex="0x44000000" SECTOR_SIZE_IN_BYTES="512" label="hyp_a"/>
-  # <program start_sector="2359296" size_in_KB="8192.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="16384" readbackverify="false" filename="hypvm.mbn" sparse="false" start_byte_hex="0x48000000" SECTOR_SIZE_IN_BYTES="512" label="hyp_b"/>
-  # <program start_sector="23461888" size_in_KB="4096.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="8192" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2cc000000" SECTOR_SIZE_IN_BYTES="512" label="mdtpsecapp_a"/>
-  # <program start_sector="23470080" size_in_KB="4096.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="8192" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2cc400000" SECTOR_SIZE_IN_BYTES="512" label="mdtpsecapp_b"/>
-  # <program start_sector="23478272" size_in_KB="32768.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="65536" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2cc800000" SECTOR_SIZE_IN_BYTES="512" label="mdtp_a"/>
-  # <program start_sector="23543808" size_in_KB="32768.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="65536" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2ce800000" SECTOR_SIZE_IN_BYTES="512" label="mdtp_b"/>
-  # <program start_sector="23609344" size_in_KB="1024.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="2048" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2d0800000" SECTOR_SIZE_IN_BYTES="512" label="ddr"/>
-  # <program start_sector="23724032" size_in_KB="8.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="16" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2d4000000" SECTOR_SIZE_IN_BYTES="512" label="ssd"/>
-  # <program start_sector="23724048" size_in_KB="2048.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="4096" readbackverify="false" filename="imagefv.elf" sparse="false" start_byte_hex="0x2d4002000" SECTOR_SIZE_IN_BYTES="512" label="imagefv_a"/>
-  # <program start_sector="23728144" size_in_KB="2048.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="4096" readbackverify="false" filename="imagefv.elf" sparse="false" start_byte_hex="0x2d4202000" SECTOR_SIZE_IN_BYTES="512" label="imagefv_b"/>
-  # <program start_sector="23732240" size_in_KB="2048.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="4096" readbackverify="false" filename="uefi_sec.mbn" sparse="false" start_byte_hex="0x2d4402000" SECTOR_SIZE_IN_BYTES="512" label="uefisecapp_a"/>
-  # <program start_sector="23736336" size_in_KB="2048.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="4096" readbackverify="false" filename="uefi_sec.mbn" sparse="false" start_byte_hex="0x2d4602000" SECTOR_SIZE_IN_BYTES="512" label="uefisecapp_b"/>
-  # <program start_sector="23855104" size_in_KB="32.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="64" readbackverify="false" filename="multi_image.mbn" sparse="false" start_byte_hex="0x2d8000000" SECTOR_SIZE_IN_BYTES="512" label="multiimgoem_a"/>
-  # <program start_sector="23855168" size_in_KB="32.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="64" readbackverify="false" filename="multi_image.mbn" sparse="false" start_byte_hex="0x2d8008000" SECTOR_SIZE_IN_BYTES="512" label="multiimgoem_b"/>
-  # <program start_sector="23855232" size_in_KB="1024.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="2048" readbackverify="false" filename="cpucp.elf" sparse="false" start_byte_hex="0x2d8010000" SECTOR_SIZE_IN_BYTES="512" label="cpucp_a"/>
-  # <program start_sector="23857280" size_in_KB="1024.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="2048" readbackverify="false" filename="cpucp.elf" sparse="false" start_byte_hex="0x2d8110000" SECTOR_SIZE_IN_BYTES="512" label="cpucp_b"/>
-  # <program start_sector="23986176" size_in_KB="33424.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="66848" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2dc000000" SECTOR_SIZE_IN_BYTES="512" label="vm-data"/>
-  # <program start_sector="24053024" size_in_KB="512.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1024" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2de0a4000" SECTOR_SIZE_IN_BYTES="512" label="keystore"/>
-  # <program start_sector="24054048" size_in_KB="128.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="256" readbackverify="false" filename="devcfg.mbn" sparse="false" start_byte_hex="0x2de124000" SECTOR_SIZE_IN_BYTES="512" label="devcfg_a"/>
-  # <program start_sector="24054304" size_in_KB="128.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="256" readbackverify="false" filename="devcfg.mbn" sparse="false" start_byte_hex="0x2de144000" SECTOR_SIZE_IN_BYTES="512" label="devcfg_b"/>
-  # <program start_sector="24117248" size_in_KB="16384.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="32768" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2e0000000" SECTOR_SIZE_IN_BYTES="512" label="questdatafv"/>
-  # <program start_sector="24248320" size_in_KB="80.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="160" readbackverify="false" filename="qupv3fw.elf" sparse="false" start_byte_hex="0x2e4000000" SECTOR_SIZE_IN_BYTES="512" label="qupfw_a"/>
-  # <program start_sector="24248480" size_in_KB="80.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="160" readbackverify="false" filename="qupv3fw.elf" sparse="false" start_byte_hex="0x2e4014000" SECTOR_SIZE_IN_BYTES="512" label="qupfw_b"/>
-  # <program start_sector="24379392" size_in_KB="4.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="8" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2e8000000" SECTOR_SIZE_IN_BYTES="512" label="devinfo"/>
-  # <program start_sector="24379400" size_in_KB="1024.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="2048" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2e8001000" SECTOR_SIZE_IN_BYTES="512" label="dip"/>
-  # <program start_sector="24510464" size_in_KB="256.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="512" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2ec000000" SECTOR_SIZE_IN_BYTES="512" label="apdp"/>
-  # <program start_sector="24510976" size_in_KB="33424.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="66848" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2ec040000" SECTOR_SIZE_IN_BYTES="512" label="splash"/>
-  # <program start_sector="24641536" size_in_KB="4.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="8" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2f0000000" SECTOR_SIZE_IN_BYTES="512" label="limits"/>
-  # <program start_sector="24641544" size_in_KB="4.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="8" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2f0001000" SECTOR_SIZE_IN_BYTES="512" label="limits-cdsp"/>
-  # <program start_sector="24641552" size_in_KB="1024.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="2048" readbackverify="false" filename="tools.fv" sparse="false" start_byte_hex="0x2f0002000" SECTOR_SIZE_IN_BYTES="512" label="toolsfv"/>
-  # <program start_sector="24772608" size_in_KB="8192.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="16384" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2f4000000" SECTOR_SIZE_IN_BYTES="512" label="logfs"/>
-  # <program start_sector="24788992" size_in_KB="524288.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1048576" readbackverify="false" filename="" sparse="false" start_byte_hex="0x2f4800000" SECTOR_SIZE_IN_BYTES="512" label="logdump"/>
-  # <program start_sector="25837568" size_in_KB="30720.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="61440" readbackverify="false" filename="" sparse="false" start_byte_hex="0x314800000" SECTOR_SIZE_IN_BYTES="512" label="qmcs"/>
-  # <program start_sector="25952256" size_in_KB="256.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="512" readbackverify="false" filename="" sparse="false" start_byte_hex="0x318000000" SECTOR_SIZE_IN_BYTES="512" label="qweslicstore_a"/>
-  # <program start_sector="25952768" size_in_KB="256.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="512" readbackverify="false" filename="" sparse="false" start_byte_hex="0x318040000" SECTOR_SIZE_IN_BYTES="512" label="qweslicstore_b"/>
-  # <program start_sector="25953280" size_in_KB="25.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="50" readbackverify="false" filename="" sparse="false" start_byte_hex="0x318080000" SECTOR_SIZE_IN_BYTES="512" label="secdata"/>
-  # <program start_sector="25953330" size_in_KB="512.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1024" readbackverify="false" filename="" sparse="false" start_byte_hex="0x318086400" SECTOR_SIZE_IN_BYTES="512" label="quantumfv"/>
-  # <program start_sector="25954354" size_in_KB="512.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="1024" readbackverify="false" filename="" sparse="false" start_byte_hex="0x318106400" SECTOR_SIZE_IN_BYTES="512" label="uefivarstore"/>
-  # <program start_sector="26083328" size_in_KB="40960.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="81920" readbackverify="false" filename="" sparse="false" start_byte_hex="0x31c000000" SECTOR_SIZE_IN_BYTES="512" label="quantumsdk"/>
-  # <program start_sector="26214400" size_in_KB="128.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="256" readbackverify="false" filename="KODIAK_IOT_2.1.bin" sparse="false" start_byte_hex="0x320000000" SECTOR_SIZE_IN_BYTES="512" label="cdt"/>
-  # <program start_sector="26345472" size_in_KB="3072.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="6144" readbackverify="false" filename="" sparse="false" start_byte_hex="0x324000000" SECTOR_SIZE_IN_BYTES="512" label="modemst1"/>
-  # <program start_sector="26351616" size_in_KB="3072.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="6144" readbackverify="false" filename="" sparse="false" start_byte_hex="0x324300000" SECTOR_SIZE_IN_BYTES="512" label="modemst2"/>
-  # <program start_sector="26476544" size_in_KB="3072.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="6144" readbackverify="false" filename="" sparse="false" start_byte_hex="0x328000000" SECTOR_SIZE_IN_BYTES="512" label="fsg"/>
-  # <program start_sector="26607616" size_in_KB="128.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="256" readbackverify="false" filename="" sparse="false" start_byte_hex="0x32c000000" SECTOR_SIZE_IN_BYTES="512" label="fsc"/>
-  # <program start_sector="26607872" size_in_KB="12582912.0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="25165824" readbackverify="false" filename="" sparse="false" start_byte_hex="0x32c020000" SECTOR_SIZE_IN_BYTES="512" label="overlay"/>
-  # <program start_sector="51773696" size_in_KB="0" physical_partition_number="0" partofsingleimage="false" file_sector_offset="0" num_partition_sectors="0" readbackverify="false" filename="" sparse="false" start_byte_hex="0x62c020000" SECTOR_SIZE_IN_BYTES="512" label="persist"/>
-  # <program start_sector="0" size_in_KB="17.0" physical_partition_number="0" partofsingleimage="true" file_sector_offset="0" num_partition_sectors="34" readbackverify="false" filename="gpt_main0.bin" sparse="false" start_byte_hex="0x0" SECTOR_SIZE_IN_BYTES="512" label="PrimaryGPT"/>
-  # <program start_sector="NUM_DISK_SECTORS-33." size_in_KB="16.5" physical_partition_number="0" partofsingleimage="true" file_sector_offset="0" num_partition_sectors="33" readbackverify="false" filename="gpt_backup0.bin" sparse="false" start_byte_hex="(512*NUM_DISK_SECTORS)-16896." SECTOR_SIZE_IN_BYTES="512" label="BackupGPT"/>
-
       - name: xbl_a
-        size: 3137536
+        offset: 64M
+        size: 3690496
         type: DEA0BA2C-CBDD-4805-B4F9-F428251C3E98
       - name: xbl_b
-        size: 3137536
+        size: 3690496
         type: DEA0BA2C-CBDD-4805-B4F9-F428251C3E98
       - name: dtb_a
         size: 64M
         type: 2A1A52FC-AA0B-401C-A808-5EA0F91068F8
-          #        filesystem: vfat-16
+        filesystem: vfat
         filesystem-label: dtb_a
       - name: dtb_b
         size: 64M
         type: A166F11A-2B39-4FAA-B7E7-F8AA080D0587
-          #        filesystem: vfat-16
+        filesystem: vfat
         filesystem-label: dtb_b
       - name: efi
-        type: C12A7328-F81F-11D2-BA4B-00A0C93EC93B
-        filesystem: vfat-16
+        type: EF,C12A7328-F81F-11D2-BA4B-00A0C93EC93B
+        filesystem: vfat
         filesystem-label: system-boot
-        size: 50M
+        size: 512M
         content:
           - source: grubaa64.efi
             target: EFI/boot/grubaa64.efi
@@ -99,6 +33,7 @@ volumes:
           - source: grub.cfg
             target: EFI/ubuntu/grub.cfg
       - name: xbl_config_a
+        offset: 768M
         size: 524288
         type: 5A325AE4-4276-B66D-0ADD-3494DF27706A
       - name: xbl_config_b
@@ -106,15 +41,16 @@ volumes:
         type: 5A325AE4-4276-B66D-0ADD-3494DF27706A
       - name: xbl_ramdump_a
         type: 0382F197-E41F-4E84-B18B-0B564AEAD875
-        size: 2097152
+        size: 2M
       - name: xbl_ramdump_b
         type: C3E58B09-ABCB-42EA-9F0C-3FA453FA892E
-        size: 2097152
+        size: 2M
       - name: uefi_a
-        size: 5242880
+        size: 5M
+        offset: 832M
         type: 400FFDCD-22E0-47E7-9A23-F16ED9382388
       - name: uefi_b
-        size: 5242880
+        size: 5M
         type: 9F234B5B-0EFB-4313-8E4C-0AF1F605536B
       - name: shrm_a
         size: 131072
@@ -123,20 +59,170 @@ volumes:
         size: 131072
         type: 39FD6C00-49EB-6BD1-6899-2FB849DD4F75
       - name: tz_a
-        size: 4194304
+        size: 4M
         type: A053AA7F-40B8-4B1C-BA08-2F68AC71A4F4
       - name: tz_b
-        size: 4194304
+        size: 4M
+        offset: 896M
         type: C832EA16-8B0D-4398-A67B-EBB30EF98E7E
       - name: aop_a
         size: 524288
+        offset: 960M
         type: D69E90A5-4CAB-0071-F6DF-AB977F141A7F
       - name: aop_b
         size: 524288
+        offset: 1024M
         type: B8B27C4C-4B5B-8AB2-502F-A792B590A896
       - name: hyp_a
-        size: 8388608
-        type: D69E90A5-4CAB-0071-F6DF-AB977F141A7F
+        size: 8M
+        offset: 1088M
+        type: E1A6A689-0C8D-4CC6-B4E8-55A4320FBD8A
       - name: hyp_b
-        size: 8388608
+        size: 8M
+        offset: 1152M
         type: B8B27C4C-4B5B-8AB2-502F-A792B590A896
+      - name: yocto
+        size: 10G
+        type: B921B045-1DF0-41C3-AF44-4C6F280D3FAE
+      - name: mdtpsecapp_a
+        size: 4M
+        offset: 11456M
+        type: EA02D680-8712-4552-A3BE-E6087829C1E6
+      - name: mdtpsecapp_b
+        size: 4M
+        type: 77036CD4-03D5-42BB-8ED1-37E5A88BAA34
+      - name: mdtp_a
+        size: 32M
+        type: 3878408A-E263-4B67-B878-6340B35B11E3
+      - name: mdtp_b
+        size: 32M
+        type: 77036CD4-03D5-42BB-8ED1-37E5A88BAA34
+      - name: ddr
+        size: 1M
+        type: 20A0C19C-286A-42FA-9CE7-F64C3226A794
+      - name: ssd
+        size: 8192
+        offset: 11584M
+        type: 2C86E742-745E-4FDD-BFD8-B6A7AC638772
+      - name: imagefv_a
+        size: 2M
+        type: 17911177-C9E6-4372-933C-804B678E666F
+      - name: imagefv_b
+        size: 2M
+        type: 920CFC3D-7285-4A47-9C1C-4A87590E0687
+      - name: uefisecapp_a
+        size: 2M
+        type: BE8A7E08-1B7A-4CAE-993A-D5B7FB55B3C2
+      - name: uefisecapp_b
+        size: 2M
+        type: 538CBDBA-D4A4-4438-A466-D7B356FAC165
+      - name: multiimgoem_a
+        size: 32768
+        offset: 11648M
+        type: E126A436-757E-42D0-8D19-0F362F7A62B8
+      - name: multiimgoem_b
+        size: 32768
+        type: 3E3E3ECD-C512-4F95-9144-6063826A8970
+      - name: cpucp_a
+        size: 1048576
+        type: 1E8615BD-6D8C-41AD-B3EA-50E8BF40E43F
+      - name: cpucp_b
+        size: 1048576
+        type: 6C1111FB-5354-41DE-AC17-5B6E542BE836
+      - name: vm-data
+        size: 34226176
+        offset: 11712M
+        type: 21ADB864-C9E7-4C76-BE68-568E20C58439
+      - name: keystore
+        size: 524288
+        type: DE7D4029-0F5B-41C8-AE7E-F6C023A02B33
+      - name: devcfg_a
+        size: 131072
+        type: F65D4B16-343D-4E25-AAFC-BE99B6556A6D
+      - name: devcfg_b
+        size: 131072
+        type: 4E820A31-17E3-447D-B32D-FB339F7EA1A2
+      - name: questdatafv
+        size: 16M
+        offset: 11776M
+        type: 7F86D79A-7C83-4FC8-BEF2-7D0A7A97AF23
+      - name: qupfw_a
+        size: 81920
+        offset: 11840M
+        type: 21d1219f-2ed1-4ab4-930a-41a16ae75f7f
+      - name: qupfw_b
+        size: 81920
+        type: 04BA8D53-5091-4958-9CA1-0FE0941D2CBC
+      - name: devinfo
+        size: 4096
+        offset: 11904M
+        type: 65ADDCF4-0C5C-4D9A-AC2D-D90B5CBFCD03
+      - name: dip
+        size: 1048576
+        type: 4114B077-005D-4E12-AC8C-B493BDA684FB
+      - name: apdp
+        size: 262144
+        offset: 11968M
+        type: E6E98DA2-E22A-4D12-AB33-169E7DEAA507 
+      - name: splash
+        size: 34226176
+        type: AD99F201-DC71-4E30-9630-E19EEF553D1B
+      - name: limits
+        size: 4096
+        offset: 12032M
+        type: 10A0C19C-516A-5444-5CE3-664C3226A794
+      - name: limits-cdsp
+        size: 4096
+        type: 545D3707-8329-40E8-8B5E-3E554CBDC786
+      - name: toolsfv
+        size: 1048576
+        type: 97745ABA-135A-44C3-9ADC-05616173C24C
+      - name: logfs
+        size: 8M
+        offset: 12096M
+        type: BC0330EB-3410-4951-A617-03898DBE3372
+      - name: logdump
+        size: 512M
+        type: 5AF80809-AABB-4943-9168-CDFC38742598
+      - name: qmcs
+        size: 30M
+        type: 358740B1-34BD-4E4C-9656-3454F0A8FDD9
+      - name: qweslicstore_a
+        size: 262144
+        offset: 12672M
+        type: 7BAB3C93-5F73-4D02-B8CB-5B9F899D29A8
+      - name: qweslicstore_b
+        size: 262144
+        type: 77036CD4-03D5-42BB-8ED1-37E5A88BAA34
+      - name: secdata
+        size: 25600
+        type: 76CFC7EF-039D-4E2C-B81E-4DD8C2CB2A93
+      - name: quantumfv
+        size: 524288
+        type: 80C23C26-C3F9-4A19-BB38-1E457DACEB09
+      - name: uefivarstore
+        size: 524288
+        type: 165BD6BC-9250-4AC8-95A7-A93F4A440066
+      - name: quantumsdk
+        size: 40M
+        offset: 12736M
+        type: AA9A5C4C-4F1F-7D3A-014A-22BD33BF7191
+      - name: cdt
+        size: 131072
+        offset: 12800M
+        type: A19F205F-CCD8-4B6D-8F1E-2D9BC24CFFB1
+      - name: modemst1
+        size: 3M
+        offset: 12864M
+        type: EBBEADAF-22C9-E33B-8F5D-0E81686A68CB
+      - name: modemst2
+        size: 3M
+        type: 0A288B1F-22C9-E33B-8F5D-0E81686A68CB
+      - name: fsg
+        size: 3M
+        offset: 12928M
+        type: 638FF8E2-22C9-E33B-8F5D-0E81686A68CB
+      - name: fsc
+        size: 131072
+        offset: 12992M
+        type: 57B90A16-22C9-E33B-8F5D-0E81686A68CB
